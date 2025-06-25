@@ -20,18 +20,7 @@
     padding: 1px 0 0 1px;
   }
 
-  .cell {
-    border: 1px solid grey;
-    margin: -1px 0 0 -1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-  }
-
-  .cell--win {
-    background: rgba(255, 0, 0, 0.1);
-  }
+  
 
   .symbol {
     font-size: 20px;
@@ -46,11 +35,4 @@
     color: green;
   }
 
-  .reset {
-    cursor: pointer;
-    margin-top: 10px;
-    background-color: transparent;
-    border: 1px solid gray;
-    padding: 4px 12px;
-    border-radius: 4px;
-  }
+ 
