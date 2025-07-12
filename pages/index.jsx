@@ -1,14 +1,42 @@
-import { GameTitle, GameInfo, GameField } from "../components/game";
+import { useState } from "react";
+import {
+  GameTitle,
+  GameInfo,
+  GameField,
+  useGameState,
+} from "../components/game";
 import { Header } from "../components/header";
 
 export default function HomePage() {
+  const [playersCount] = useState(4);
+  const {
+    cells,
+    currentMove,
+    handleCellClick,
+    nextMove,
+    winnerSequence,
+    handlePlayerTimeOver,
+  } = useGameState(playersCount);
   return (
     <div className="bg-slate-50 min-h-screen">
       <Header />
       <main className="pt-6 mx-auto w-max">
-        <GameTitle />
-        <GameInfo className="mt-4" />
-        <GameField className='mt-6'/>
+        <GameTitle playersCount={playersCount} />
+        <GameInfo
+          playersCount={playersCount}
+          className="mt-4"
+          currentMove={currentMove}
+          isWinner={!!winnerSequence}
+          onPlayerTimeOver={handlePlayerTimeOver}
+        />
+        <GameField
+          className="mt-6"
+          cells={cells}
+          currentMove={currentMove}
+          handleCellClick={handleCellClick}
+          nextMove={nextMove}
+          winnerSequence={winnerSequence}
+        />
       </main>
     </div>
   );
